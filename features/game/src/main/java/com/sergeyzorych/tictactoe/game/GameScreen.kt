@@ -2,15 +2,18 @@ package com.sergeyzorych.tictactoe.game
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
+import timber.log.Timber
 
 /**
  * Created by Android Studio on 07/01/2023 20:34
@@ -32,6 +35,12 @@ fun GameScreen() {
             .size(boardSize)
             .padding(vertical = heightPadding)
             .background(Color.LightGray)
+            .pointerInput(Unit) {
+                detectTapGestures {
+                    Timber.d("column = ${it.x}")
+                    Timber.d("row = ${it.y}")
+                }
+            }
     ) {
         for (i in 0 until 2) {
             val mainAxisOffset = (cellSize.toPx() * (i + 1)) + (dividerSize.toPx() * i)
