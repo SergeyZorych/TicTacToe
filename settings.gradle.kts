@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":features:game")
+
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {

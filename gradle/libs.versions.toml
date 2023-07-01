@@ -25,6 +25,7 @@ junit = "4.13.2"
 junit-ext = "1.1.5"
 espresso = "3.5.1"
 timber = "5.0.1"
+material = "1.9.0"
 
 
 [libraries]
@@ -85,6 +86,7 @@ test-android-junit = { group = "androidx.test.ext", name = "junit", version.ref 
 test-android-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
