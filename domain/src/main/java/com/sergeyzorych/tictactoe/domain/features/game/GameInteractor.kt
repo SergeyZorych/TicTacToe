@@ -25,10 +25,30 @@ class GameInteractor {
 
         board[x][y] = currentTurn
 
-        currentTurn *= -1
+        if (!isWin(x, y)) {
+            currentTurn *= -1
+        }
     }
 
     private fun canMove(x: Int, y: Int): Boolean {
         return board[x][y] == 0
+    }
+
+    private fun isWin(currentRow: Int, currentCol: Int): Boolean {
+        return (board[currentRow][0] == currentTurn         // 3-in-the-row
+                && board[currentRow][1] == currentTurn
+                && board[currentRow][2] == currentTurn
+                || board[0][currentCol] == currentTurn      // 3-in-the-column
+                && board[1][currentCol] == currentTurn
+                && board[2][currentCol] == currentTurn
+                || currentRow == currentCol            // 3-in-the-diagonal
+                && board[0][0] == currentTurn
+                && board[1][1] == currentTurn
+                && board[2][2] == currentTurn
+                || currentRow + currentCol == 2    // 3-in-the-opposite-diagonal
+                && board[0][2] == currentTurn
+                && board[1][1] == currentTurn
+                && board[2][0] == currentTurn)
+
     }
 }
