@@ -26,6 +26,7 @@ junit-ext = "1.1.5"
 espresso = "3.5.1"
 timber = "5.0.1"
 material = "1.11.0"
+org-jetbrains-kotlin-jvm = "1.9.22"
 
 
 [libraries]
@@ -93,6 +94,7 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 
 
 [bundles]
