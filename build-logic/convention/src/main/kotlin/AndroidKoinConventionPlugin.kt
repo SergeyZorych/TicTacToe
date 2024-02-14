@@ -20,7 +20,7 @@ class AndroidKoinConventionPlugin : Plugin<Project> {
             }
 
             val androidExtension = extensions.getByName("android")
-            val extension: CommonExtension<*, *, *, *> =
+            val extension: CommonExtension<*, *, *, *, *> =
                 extensions.findByType<ApplicationExtension>()
                     ?: extensions.getByType<LibraryExtension>()
 

@@ -21,7 +21,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 
 internal fun Project.configureAndroidKoin(
     androidExtension: Any,
-    commonExtension: CommonExtension<*, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
     val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 

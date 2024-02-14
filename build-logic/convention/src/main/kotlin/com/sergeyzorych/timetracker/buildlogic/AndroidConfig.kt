@@ -16,8 +16,8 @@ object AndroidConfig {
     private val ciBuildNumber = System.getenv("CI_PIPELINE_IID")?.toInt()
     private const val clearVersionCode = (10000 * major + 100 * minor + patch)
 
-    const val compileSdkVersion = 33
-    const val targetSdkVersion = 33
+    const val compileSdkVersion = 34
+    const val targetSdkVersion = 34
     const val minSdkVersion = 26
     const val androidJunitRunner = "androidx.test.runner.AndroidJUnitRunner"
 
