@@ -2,6 +2,7 @@ package com.sergeyzorych.tictactoe.domain
 
 import com.sergeyzorych.tictactoe.domain.features.game.GameInteractor
 import com.sergeyzorych.tictactoe.domain.features.game.MoveStatus
+import com.sergeyzorych.tictactoe.domain.features.game.Players
 import org.junit.Before
 import org.junit.Test
 
@@ -28,6 +29,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.X)
 
         //  add O at 0,1
         //
@@ -35,7 +37,7 @@ class GameInteractorTest {
         //  |O| | |
         //  | | | |
         assert(interactor.move(0, 1) == MoveStatus.DONE)
-
+        assert(interactor.board.value[0][1] == Players.O)
 
         //   add X at 1,0
         //
@@ -43,7 +45,7 @@ class GameInteractorTest {
         //   |O| | |
         //   | | | |
         assert(interactor.move(1, 0) == MoveStatus.DONE)
-
+        assert(interactor.board.value[1][0] == Players.X)
 
         //   add X at 1,0
         //
@@ -51,7 +53,7 @@ class GameInteractorTest {
         //   |O|O| |
         //   | | | |
         assert(interactor.move(1, 1) == MoveStatus.DONE)
-
+        assert(interactor.board.value[1][1] == Players.O)
 
         //   add X at 2,0 and win for X
         //
@@ -59,6 +61,7 @@ class GameInteractorTest {
         //   |O|O| |
         //   | | | |
         assert(interactor.move(2, 0) == MoveStatus.WIN)
+        assert(interactor.board.value[2][0] == Players.X)
     }
 
     @Test
@@ -70,6 +73,7 @@ class GameInteractorTest {
         //   |X| | |
         //   | | | |
         assert(interactor.move(0, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[0][1] == Players.X)
 
         //   add 0 at 0,0
         //
@@ -77,6 +81,7 @@ class GameInteractorTest {
         //   |X| | |
         //   | | | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.O)
 
         //   add X at 1,1
         //
@@ -84,6 +89,7 @@ class GameInteractorTest {
         //   |X|X| |
         //   | | | |
         assert(interactor.move(1, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[1][1] == Players.X)
 
         //   add O at 1,0
         //
@@ -91,6 +97,7 @@ class GameInteractorTest {
         //   |X|X| |
         //   | | | |
         assert(interactor.move(1, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[1][0] == Players.O)
 
         //   add X at 2,1 and win for X
         //
@@ -98,6 +105,7 @@ class GameInteractorTest {
         //   |X|X|X|
         //   | | | |
         assert(interactor.move(2, 1) == MoveStatus.WIN)
+        assert(interactor.board.value[2][1] == Players.X)
     }
 
     @Test
@@ -109,6 +117,7 @@ class GameInteractorTest {
         //   | | | |
         //   |X| | |
         assert(interactor.move(0, 2) == MoveStatus.DONE)
+        assert(interactor.board.value[0][2] == Players.X)
 
         //   add O at 0,0
         //
@@ -116,6 +125,7 @@ class GameInteractorTest {
         //   | | | |
         //   |X| | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.O)
 
         //   add X at 1,2
         //
@@ -123,6 +133,7 @@ class GameInteractorTest {
         //   | | | |
         //   |X|X| |
         assert(interactor.move(1, 2) == MoveStatus.DONE)
+        assert(interactor.board.value[1][2] == Players.X)
 
         //   add O at 1,0
         //
@@ -130,6 +141,7 @@ class GameInteractorTest {
         //   | | | |
         //   |X|X| |
         assert(interactor.move(1, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[1][0] == Players.O)
 
         //   add X at 2,2 and win fo X
         //
@@ -137,6 +149,7 @@ class GameInteractorTest {
         //   | | | |
         //   |X|X|X|
         assert(interactor.move(2, 2) == MoveStatus.WIN)
+        assert(interactor.board.value[2][2] == Players.X)
     }
 
     @Test
@@ -148,6 +161,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.X)
 
         //   add O at 1,0
         //
@@ -155,6 +169,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(1, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[1][0] == Players.O)
 
         //   add X at 0,1
         //
@@ -162,6 +177,7 @@ class GameInteractorTest {
         //   |X| | |
         //   | | | |
         assert(interactor.move(0, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[0][1] == Players.X)
 
         //   add O at 1,1
         //
@@ -169,6 +185,7 @@ class GameInteractorTest {
         //   |X|O| |
         //   | | | |
         assert(interactor.move(1, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[1][1] == Players.O)
 
         //   add X at 0,2
         //
@@ -176,6 +193,7 @@ class GameInteractorTest {
         //   |X|O| |
         //   |X| | |
         assert(interactor.move(0, 2) == MoveStatus.WIN)
+        assert(interactor.board.value[0][2] == Players.X)
     }
 
     @Test
@@ -187,6 +205,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(1, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[1][0] == Players.X)
 
         //   add O at O,0
         //
@@ -194,6 +213,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.O)
 
         //   add X at 1,1
         //
@@ -201,6 +221,7 @@ class GameInteractorTest {
         //   | |X| |
         //   | | | |
         assert(interactor.move(1, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[1][1] == Players.X)
 
         //   add O at O,1
         //
@@ -208,6 +229,7 @@ class GameInteractorTest {
         //   |O|X| |
         //   | | | |
         assert(interactor.move(0, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[0][1] == Players.O)
 
         //   add X at 1,2 and win for X
         //
@@ -215,6 +237,7 @@ class GameInteractorTest {
         //   |O|X| |
         //   | |X| |
         assert(interactor.move(1, 2) == MoveStatus.WIN)
+        assert(interactor.board.value[1][2] == Players.X)
     }
 
     @Test
@@ -226,6 +249,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(2, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[2][0] == Players.X)
 
         //   add O at 0,0
         //
@@ -233,6 +257,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.O)
 
         //   add X at 2,1
         //
@@ -240,6 +265,7 @@ class GameInteractorTest {
         //   | | |X|
         //   | | | |
         assert(interactor.move(2, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[2][1] == Players.X)
 
         //   add O at 0,1
         //
@@ -247,6 +273,7 @@ class GameInteractorTest {
         //   |O| |X|
         //   | | | |
         assert(interactor.move(0, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[0][1] == Players.O)
 
         //   add X at 2,2 and win for X
         //
@@ -254,6 +281,7 @@ class GameInteractorTest {
         //   |O| |X|
         //   | | |X|
         assert(interactor.move(2, 2) == MoveStatus.WIN)
+        assert(interactor.board.value[2][2] == Players.X)
     }
 
     @Test
@@ -265,6 +293,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.X)
 
         //   add O at 1,0
         //
@@ -272,6 +301,7 @@ class GameInteractorTest {
         //   | | | |
         //   | | | |
         assert(interactor.move(1, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[1][0] == Players.O)
 
         //   add X at 1,1
         //
@@ -279,6 +309,7 @@ class GameInteractorTest {
         //   | |X| |
         //   | | | |
         assert(interactor.move(1, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[1][1] == Players.X)
 
         //   add O at 2,0
         //
@@ -286,6 +317,7 @@ class GameInteractorTest {
         //   | |X| |
         //   | | | |
         assert(interactor.move(0, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[0][1] == Players.O)
 
         //   add X at 2,2 and win for X
         //
@@ -293,17 +325,19 @@ class GameInteractorTest {
         //   | |X| |
         //   | | |X|
         assert(interactor.move(2, 2) == MoveStatus.WIN)
+        assert(interactor.board.value[2][2] == Players.X)
     }
 
     @Test
     fun diagonal2Win() {
-        
+
         //   add X at 0,2
         //
         //   | | | |
         //   | | | |
         //   |X| | |
         assert(interactor.move(0, 2) == MoveStatus.DONE)
+        assert(interactor.board.value[0][2] == Players.X)
 
         //   add O at 0,0
         //
@@ -311,6 +345,7 @@ class GameInteractorTest {
         //   | | | |
         //   |X| | |
         assert(interactor.move(0, 0) == MoveStatus.DONE)
+        assert(interactor.board.value[0][0] == Players.O)
 
         //   add X at 1,1
         //
@@ -318,6 +353,7 @@ class GameInteractorTest {
         //   | |X| |
         //   |X| | |
         assert(interactor.move(1, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[1][1] == Players.X)
 
         //   add O at 0,1
         //
@@ -325,6 +361,7 @@ class GameInteractorTest {
         //   |O|X| |
         //   |X| | |
         assert(interactor.move(0, 1) == MoveStatus.DONE)
+        assert(interactor.board.value[0][1] == Players.O)
 
         //   add X at 2,0 and win for X
         //
@@ -332,6 +369,7 @@ class GameInteractorTest {
         //   |O|X| |
         //   |X| | |
         assert(interactor.move(2, 0) == MoveStatus.WIN)
+        assert(interactor.board.value[2][0] == Players.X)
     }
 
 
